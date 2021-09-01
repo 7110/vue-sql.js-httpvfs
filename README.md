@@ -2,6 +2,10 @@
 
 sample of using [sql.js-httpvfs](https://github.com/phiresky/sql.js-httpvfs) with Vue.js
 
+## Demo
+
+[gh-pages](https://7110.github.io/vue-sql.js-httpvfs/)
+
 ## Getting Started
 
 Install
