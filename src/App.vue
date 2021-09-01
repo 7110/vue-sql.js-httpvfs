@@ -19,8 +19,17 @@ import { createDbWorker } from "sql.js-httpvfs";
 
 // import HelloWorld from "@/components/HelloWorld.vue";
 
-const workerUrl = new URL("/sql.js-httpvfs/sqlite.worker.js", import.meta.url);
-const wasmUrl = new URL("/sql.js-httpvfs/sql-wasm.wasm", import.meta.url);
+const publicPath =
+  process.env.NODE_ENV === "production" ? "/vue-sql.js-httpvfs/" : "/";
+
+const workerUrl = new URL(
+  `${publicPath}sql.js-httpvfs/sqlite.worker.js`,
+  import.meta.url
+);
+const wasmUrl = new URL(
+  `${publicPath}sql.js-httpvfs/sql-wasm.wasm`,
+  import.meta.url
+);
 
 export default {
   name: "App",
@@ -39,7 +48,7 @@ export default {
           from: "inline",
           config: {
             serverMode: "full",
-            url: "/db/example.sqlite3",
+            url: `${publicPath}db/example.sqlite3`,
             requestChunkSize: 4096,
           },
         },

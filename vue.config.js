@@ -1,6 +1,13 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const publicPath =
+  process.env.NODE_ENV === "production" ? "/vue-sql.js-httpvfs/" : "/";
+
 module.exports = {
+  publicPath,
+
+  parallel: false,
+
   configureWebpack: {
     plugins: [
       new CopyWebpackPlugin({
